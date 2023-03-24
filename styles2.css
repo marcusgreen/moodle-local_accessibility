@@ -1,0 +1,15 @@
+.local-accessibility-buttoncontainer {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+}
+
+#local-accessibility-buttoncontainer button {
+    font-size: 16px;
+    width: 36px;
+    height: 36px;
+    line-height: 16px;
+    padding: 0;
+    text-align: center;
+    border-radius: 50%;
+}
