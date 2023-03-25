@@ -4,6 +4,7 @@ export const init = () => {
     $(() => {
         const $button = $('#local-accessibility-buttoncontainer button');
         const $panel = $('.local-accessibility-panel');
+        const $closebtn = $('#local-accessibility-closebtn');
 
         if (!$button.length || !$panel.length) {
             return;
@@ -29,5 +30,11 @@ export const init = () => {
                 $panel.hide();
             }
         });
+
+        if ($closebtn.length) {
+            $closebtn.on('click', () => {
+                $panel.hide();
+            });
+        }
     });
 };
