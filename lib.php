@@ -14,7 +14,8 @@ function local_accessibility_before_footer() {
      * @var \moodle_page $PAGE
      */
     global $OUTPUT, $PAGE;
-    $PAGE->requires->js_call_amd('local_accessibility/init', 'init');
     $mainbutton = $OUTPUT->render_from_template('local_accessibility/mainbutton', null);
-    return $mainbutton;
+    $panel = $OUTPUT->render_from_template('local_accessibility/panel', null);
+    $PAGE->requires->js_call_amd('local_accessibility/panel', 'init');
+    return $mainbutton . $panel;
 }
