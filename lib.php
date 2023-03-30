@@ -3,6 +3,7 @@
 require_once(__DIR__ . '/classes/optionbase.php');
 require_once(__DIR__ . '/classes/optionrange.php');
 require_once(__DIR__ . '/classes/options/fontsize.php');
+require_once(__DIR__ . '/classes/options/fontface.php');
 
 /**
  * Undocumented function
@@ -11,7 +12,8 @@ require_once(__DIR__ . '/classes/options/fontsize.php');
  */
 function local_accessibility_get_options() {
     return [
-        new local_accessibility\options\fontsize()
+        new local_accessibility\options\fontsize(),
+        new local_accessibility\options\fontface()
     ];
 }
 
@@ -22,6 +24,7 @@ function local_accessibility_before_http_headers() {
     global $PAGE;
     $PAGE->requires->css('/local/accessibility/styles2.css');
     $PAGE->requires->css('/local/accessibility/classes/options/fontsize.css');
+    $PAGE->requires->css('/local/accessibility/classes/options/fontface.css');
 }
 
 function local_accessibility_before_footer() {
