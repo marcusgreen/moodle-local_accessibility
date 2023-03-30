@@ -6,7 +6,7 @@ defined('MOODLE_INTERNAL') or die();
 
 class fontface extends optionbase {
     public function __construct() {
-        parent::__construct('Font Face', 'accessibility_fontface');
+        parent::__construct(get_string('fontface', 'local_accessibility'), 'accessibility_fontface');
     }
 
     public function init() {

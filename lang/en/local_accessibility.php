@@ -26,3 +26,11 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = 'Accessibility';
+$string['backgroundcolour'] = 'Background Colour';
+$string['fontface'] = 'Font Face';
+$string['serif'] = 'Serif';
+$string['sansserif'] = 'Sans Serif';
+$string['dyslexic'] = 'Dyslexic';
+$string['fontsize'] = 'Font Size';
+$string['textcolour'] = 'Text Colour';
+$string['reset'] = 'Reset';

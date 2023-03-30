@@ -1,14 +1,16 @@
 <div class="container" id="{{name}}-container">
     <div class="btn-group-vertical w-100">
-        <button type="button" class="btn btn-light {{name}}-resetbtn {{name}}-noapply">Reset</button>
+        <button type="button" class="btn btn-light {{name}}-resetbtn {{name}}-noapply">
+            {{#str}} reset, local_accessibility {{/str}}
+        </button>
         <button type="button" class="btn btn-light {{name}}-classbtn" data-class="accessibility-fontface-serif" style="font-family: none !important;">
-            Serif
+            {{#str}} serif, local_accessibility {{/str}}
         </button>
         <button type="button" class="btn btn-light {{name}}-classbtn" data-class="accessibility-fontface-sansserif" style="font-family: sans-serif !important;">
-            Sans Serif
+            {{#str}} sansserif, local_accessibility {{/str}}
         </button>
         <button type="button" class="btn btn-light {{name}}-classbtn" data-class="accessibility-fontface-dyslexic" style="font-family: opendyslexic !important;">
-            Dyslexic
+            {{#str}} dyslexic, local_accessibility {{/str}}
         </button>
     </div>
 </div>

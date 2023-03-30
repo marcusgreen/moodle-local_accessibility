@@ -7,7 +7,7 @@ defined('MOODLE_INTERNAL') or die();
 class fontsize extends optionrange {
     public function __construct() {
         parent::__construct(
-            'Font Size',
+            get_string('fontsize', 'local_accessibility'),
             'accessibility_fontsize',
             0.5,
             2,
