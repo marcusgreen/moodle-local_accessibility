@@ -6,6 +6,7 @@ require_once(__DIR__ . '/classes/optioncolour.php');
 require_once(__DIR__ . '/classes/options/fontsize.php');
 require_once(__DIR__ . '/classes/options/fontface.php');
 require_once(__DIR__ . '/classes/options/backgroundcolour.php');
+require_once(__DIR__ . '/classes/options/textcolour.php');
 
 /**
  * Undocumented function
@@ -16,7 +17,8 @@ function local_accessibility_get_options() {
     return [
         new local_accessibility\options\fontsize(),
         new local_accessibility\options\fontface(),
-        new local_accessibility\options\backgroundcolour()
+        new local_accessibility\options\backgroundcolour(),
+        new local_accessibility\options\textcolour()
     ];
 }
 
@@ -25,7 +27,7 @@ function local_accessibility_before_http_headers() {
      * @var \moodle_page $PAGE
      */
     global $PAGE;
-    $PAGE->requires->css('/local/accessibility/styles2.css');
+    $PAGE->requires->css('/local/accessibility/styles-dev.css');
     $PAGE->requires->css('/local/accessibility/classes/options/fontsize.css');
     $PAGE->requires->css('/local/accessibility/classes/options/fontface.css');
 }
