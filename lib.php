@@ -2,8 +2,10 @@
 
 require_once(__DIR__ . '/classes/optionbase.php');
 require_once(__DIR__ . '/classes/optionrange.php');
+require_once(__DIR__ . '/classes/optioncolour.php');
 require_once(__DIR__ . '/classes/options/fontsize.php');
 require_once(__DIR__ . '/classes/options/fontface.php');
+require_once(__DIR__ . '/classes/options/backgroundcolour.php');
 
 /**
  * Undocumented function
@@ -13,7 +15,8 @@ require_once(__DIR__ . '/classes/options/fontface.php');
 function local_accessibility_get_options() {
     return [
         new local_accessibility\options\fontsize(),
-        new local_accessibility\options\fontface()
+        new local_accessibility\options\fontface(),
+        new local_accessibility\options\backgroundcolour()
     ];
 }
 
@@ -45,6 +48,7 @@ function local_accessibility_before_footer() {
         $options[] = [
             'name' => $optioninstance->getname(),
             'title' => $optioninstance->gettitle(),
+            'class' => $optioninstance->getclass(),
             'content' => $optioninstance->getcontent()
         ];
     }
