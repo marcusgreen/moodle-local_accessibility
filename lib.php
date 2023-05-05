@@ -9,8 +9,6 @@ require_once(__DIR__ . '/classes/options/backgroundcolour.php');
 require_once(__DIR__ . '/classes/options/textcolour.php');
 
 /**
- * Undocumented function
- *
  * @return local_accessibility\options\optionbase[]
  */
 function local_accessibility_get_options() {
