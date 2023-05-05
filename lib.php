@@ -49,7 +49,6 @@ function local_accessibility_before_footer() {
     $options = [];
     $optioninstances = local_accessibility_get_options();
     foreach ($optioninstances as $optioninstance) {
-        $optioninstance->init();
         $options[] = [
             'name' => $optioninstance->getname(),
             'title' => $optioninstance->gettitle(),
