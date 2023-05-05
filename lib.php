@@ -28,6 +28,11 @@ function local_accessibility_before_http_headers() {
     $PAGE->requires->css('/local/accessibility/styles-dev.css');
     $PAGE->requires->css('/local/accessibility/classes/options/fontsize.css');
     $PAGE->requires->css('/local/accessibility/classes/options/fontface.css');
+
+    $optioninstances = local_accessibility_get_options();
+    foreach ($optioninstances as $optioninstance) {
+        $optioninstance->init();
+    }
 }
 
 function local_accessibility_before_footer() {
