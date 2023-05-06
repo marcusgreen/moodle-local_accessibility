@@ -45,7 +45,7 @@ abstract class optionbase {
             return null;
         }
 
-        $record = $DB->get_record('accessibility_userconfigs', ['module' => $this->name, 'userid' => $USER->id]);
+        $record = $DB->get_record('accessibility_userconfigs', ['optionname' => $this->name, 'userid' => $USER->id]);
         return $record ? $record->configvalue : null;
     }
 
@@ -60,17 +60,17 @@ abstract class optionbase {
         }
 
         if (!$value) {
-            return $DB->delete_records('accessibility_userconfigs', ['module' => $this->name, 'userid' => $USER->id]);
+            return $DB->delete_records('accessibility_userconfigs', ['optionname' => $this->name, 'userid' => $USER->id]);
         }
 
-        $record = $DB->get_record('accessibility_userconfigs', ['module' => $this->name, 'userid' => $USER->id]);
+        $record = $DB->get_record('accessibility_userconfigs', ['optionname' => $this->name, 'userid' => $USER->id]);
         if ($record) {
             $record->configvalue = $value;
             return $DB->update_record('accessibility_userconfigs', $record);
         }
 
         $record = new stdClass();
-        $record->module = $this->name;
+        $record->optionname = $this->name;
         $record->userid = $USER->id;
         $record->configvalue = $value;
         return $DB->insert_record('accessibility_userconfigs', $record);

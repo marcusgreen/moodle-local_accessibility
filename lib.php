@@ -11,13 +11,29 @@ require_once(__DIR__ . '/classes/options/textcolour.php');
 /**
  * @return local_accessibility\options\optionbase[]
  */
-function local_accessibility_get_options() {
+function local_accessibility_getoptions() {
     return [
         new local_accessibility\options\fontsize(),
         new local_accessibility\options\fontface(),
         new local_accessibility\options\backgroundcolour(),
         new local_accessibility\options\textcolour()
     ];
+}
+
+/**
+ * Undocumented function
+ *
+ * @param string $optionname
+ * @return local_accessibility\options\optionbase
+ */
+function local_accessibility_getoptionbyname($optionname) {
+    switch ($optionname) {
+        case 'fontsize': return new local_accessibility\options\fontsize();
+        case 'fontface': return new local_accessibility\options\fontface();
+        case 'backgroundcolour': return new local_accessibility\options\backgroundcolour();
+        case 'textcolour': return new local_accessibility\options\textcolour();
+    }
+    throw new moodle_exception('INVALID_OPTIONNAME', 'local_accessibility');
 }
 
 function local_accessibility_before_http_headers() {
@@ -29,7 +45,7 @@ function local_accessibility_before_http_headers() {
     $PAGE->requires->css('/local/accessibility/classes/options/fontsize.css');
     $PAGE->requires->css('/local/accessibility/classes/options/fontface.css');
 
-    $optioninstances = local_accessibility_get_options();
+    $optioninstances = local_accessibility_getoptions();
     foreach ($optioninstances as $optioninstance) {
         $optioninstance->init();
     }
@@ -47,7 +63,7 @@ function local_accessibility_before_footer() {
     $mainbutton = $OUTPUT->render_from_template('local_accessibility/mainbutton', null);
     
     $options = [];
-    $optioninstances = local_accessibility_get_options();
+    $optioninstances = local_accessibility_getoptions();
     foreach ($optioninstances as $optioninstance) {
         $options[] = [
             'name' => $optioninstance->getname(),
