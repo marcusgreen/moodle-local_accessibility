@@ -1,11 +1,12 @@
 import { saveOptionConfig } from './common';
 import $ from 'jquery';
 
-export const init = (optionname, stylename) => {
+export const init = (optionname, saveoptionname, stylename, bodyclassname = undefined) => {
     $(() => {
-        const optionshortname = /^accessibility_(.*)$/.exec(optionname)[1];
         const revokedefault = () => {
-            $('body').removeClass(optionname);
+            if (bodyclassname) {
+                $('body').removeClass(bodyclassname);
+            }
         };
 
         const defaultattrname = `data-default-${stylename}`;
@@ -34,7 +35,7 @@ export const init = (optionname, stylename) => {
                 }
                 $element.css(stylename, colour);
             }
-            await saveOptionConfig(optionshortname, colour);
+            await saveOptionConfig(saveoptionname, colour);
         });
 
         const $img = $container.find('img.colourdialogue');
@@ -55,7 +56,7 @@ export const init = (optionname, stylename) => {
                     $element.css(stylename, defaultcolour);
                     $element.removeAttr(defaultattrname);
                 }
-                await saveOptionConfig(optionshortname, null);
+                await saveOptionConfig(saveoptionname, null);
             });
         }
     });

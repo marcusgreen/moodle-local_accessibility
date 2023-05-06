@@ -21,6 +21,11 @@ class backgroundcolour extends optioncolor {
             $PAGE->requires->css('/local/accessibility/backgroundcolourstyle.php');
         }
 
-        $PAGE->requires->js_call_amd('local_accessibility/colour', 'init', [$this->name, 'background-color']);
+        $PAGE->requires->js_call_amd('local_accessibility/colour', 'init', [
+            $this->name,
+            'backgroundcolour',
+            'background-color',
+            'accessibility-backgroundcolour'
+        ]);
     }
 }

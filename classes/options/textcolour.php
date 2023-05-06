@@ -21,6 +21,11 @@ class textcolour extends optioncolor {
             $PAGE->requires->css('/local/accessibility/textcolourstyle.php');
         }
 
-        $PAGE->requires->js_call_amd('local_accessibility/colour', 'init', [$this->name, 'color']);
+        $PAGE->requires->js_call_amd('local_accessibility/colour', 'init', [
+            $this->name,
+            'textcolour',
+            'color',
+            'accessibility-textcolour'
+        ]);
     }
 }
