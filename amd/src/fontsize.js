@@ -2,7 +2,7 @@ import $ from 'jquery';
 import { initoptionrange } from './optionrange';
 import { saveOptionConfig } from './common';
 
-export const init = () => {
+export const init = (defaultclass = undefined) => {
     const classnames = [
         'accessibility-fontsize-050',
         'accessibility-fontsize-075',
@@ -14,6 +14,18 @@ export const init = () => {
 
     $(() => {
         const $body = $('body');
+
+        const getuserdefault = () => {
+            if (!defaultclass) {
+                return undefined;
+            }
+            const match = /accessibility\-fontsize\-(\d+)/.exec(defaultclass);
+            if (!match) {
+                return undefined;
+            }
+            return parseFloat(match[1]) / 100;
+        };
+
         initoptionrange('accessibility_fontsize', async(size) => {
             $body.removeClass(classnames);
             if (parseFloat(size) === 1.0) {
@@ -26,6 +38,6 @@ export const init = () => {
             }
             $body.addClass(classname);
             await saveOptionConfig('fontsize', classname);
-        });
+        }, getuserdefault());
     });
 };

@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-export const initoptionrange = (name, callback) => {
+export const initoptionrange = (name, callback, userdefault = undefined) => {
     const $inputrange = $(`#${name}-input`);
     const $label = $(`#${name}-label`);
     const $btnup = $(`#${name}-btnup`);
@@ -50,5 +50,10 @@ export const initoptionrange = (name, callback) => {
             $inputrange.val(defaultvalue);
             $inputrange.trigger('change');
         });
+    }
+
+    if (userdefault) {
+        $inputrange.val(userdefault);
+        $inputrange.trigger('change');
     }
 };
