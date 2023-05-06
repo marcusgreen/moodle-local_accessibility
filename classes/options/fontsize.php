@@ -29,4 +29,16 @@ class fontsize extends optionrange {
 
         $PAGE->requires->js_call_amd('local_accessibility/fontsize', 'init');
     }
+
+    public function getcontent() {
+        $userconfig = $this->getuserconfig();
+        if ($userconfig) {
+            $explodedclassname = explode('-', $userconfig);
+            $size = count($explodedclassname) > 2 ? $explodedclassname[2] : null;
+            if (!is_null($size)) {
+                $this->default = round($size / 100, 2);
+            }
+        }
+        return parent::getcontent();
+    }
 }
