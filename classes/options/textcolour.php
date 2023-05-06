@@ -14,6 +14,13 @@ class textcolour extends optioncolor {
          * @var \moodle_page $PAGE
          */
         global $PAGE;
+
+        $userconfig = $this->getuserconfig();
+        if ($userconfig) {
+            $this->addbodyclass('accessibility-textcolour');
+            $PAGE->requires->css('/local/accessibility/textcolourstyle.php');
+        }
+
         $PAGE->requires->js_call_amd('local_accessibility/colour', 'init', [$this->name, 'color']);
     }
 }
