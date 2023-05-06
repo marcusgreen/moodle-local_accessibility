@@ -40,11 +40,6 @@ function xmldb_local_accessibility_upgrade($oldversion) {
     $dbman = $DB->get_manager();
 
     if ($oldversion < 2023050600) {
-        $table = new xmldb_table('accessibility_userconfigs');
-        if ($dbman->table_exists($table)) {
-            $dbman->drop_table($table);
-        }
-
         $dbman->install_from_xmldb_file($CFG->dirroot . '/local/accessibility/db/install.xml');
         upgrade_plugin_savepoint(true, 2023050600, 'local', 'accessibility');
     }

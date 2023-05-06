@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { saveOptionConfig } from './common';
 
 export const init = () => {
     $(() => {
@@ -14,16 +15,18 @@ export const init = () => {
             return;
         }
 
-        $classbuttons.on('click', e => {
-            const $this = $(e.target);
+        $classbuttons.on('click', async(e) => {
+            const classname = $(e.target).attr('data-class');
             $body.removeClass(classes);
-            $body.addClass($this.attr('data-class'));
+            $body.addClass(classname);
+            await saveOptionConfig('fontface', classname);
         });
 
         const $resetbutton = $container.find('.accessibility_fontface-resetbtn');
         if ($resetbutton.length) {
-            $resetbutton.on('click', () => {
+            $resetbutton.on('click', async() => {
                 $body.removeClass(classes);
+                await saveOptionConfig('fontface', null);
             });
         }
     });

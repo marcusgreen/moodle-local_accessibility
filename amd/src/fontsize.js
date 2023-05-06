@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import { initoptionrange } from './optionrange';
+import { saveOptionConfig } from './common';
 
 export const init = () => {
     const classnames = [
@@ -13,9 +14,10 @@ export const init = () => {
 
     $(() => {
         const $body = $('body');
-        initoptionrange('accessibility_fontsize', size => {
+        initoptionrange('accessibility_fontsize', async(size) => {
             $body.removeClass(classnames);
             if (parseFloat(size) === 1.0) {
+                await saveOptionConfig('fontsize', null);
                 return;
             }
             const classname = 'accessibility-fontsize-' + Math.round(parseFloat(size) * 100).toString().padStart(3, '0');
@@ -23,6 +25,7 @@ export const init = () => {
                 return;
             }
             $body.addClass(classname);
+            await saveOptionConfig('fontsize', classname);
         });
     });
 };
