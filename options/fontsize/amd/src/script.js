@@ -1,6 +1,6 @@
 import $ from 'jquery';
-import { initoptionrange } from '../../../../amd/src/optionrange';
-import { saveOptionConfig } from '../../../../amd/src/common';
+import { initoptionrange } from 'local_accessibility/optionrange';
+import { saveOptionConfig } from 'local_accessibility/common';
 
 export const init = (userdefault = undefined) => {
     const classnames = [

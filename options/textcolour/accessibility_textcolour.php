@@ -20,10 +20,10 @@ class textcolour extends optioncolour {
         $userconfig = $this->getuserconfig();
         if ($userconfig) {
             $this->addbodyclass('accessibility-textcolour');
-            $PAGE->requires->css('/local/accessibility/textcolourstyle.php');
+            $PAGE->requires->css('/local/accessibility/options/textcolour/styles.php');
         }
 
-        $PAGE->requires->js_call_amd('local_accessibility/colour', 'init', [
+        $PAGE->requires->js_call_amd('local_accessibility/colouroption', 'init', [
             $this->getfullname(),
             $this->name,
             'color',

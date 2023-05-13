@@ -27,7 +27,7 @@ class saveoptionconfig extends \external_api {
 
     public static function execute(string $optionname, $configvalue): array {
         self::validate_parameters(self::execute_parameters(), ['optionname' => $optionname, 'configvalue' => $configvalue]);
-        $option = local_accessibility_getoptionbyname($optionname);
+        $option = local_accessibility_getoptioninstancebyname($optionname);
         $option->setuserconfig($configvalue);
         return ['success' => true];
     }
