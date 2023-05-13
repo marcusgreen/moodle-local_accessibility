@@ -25,7 +25,7 @@ abstract class optionrange extends optionbase {
         global $OUTPUT;
         return $OUTPUT->render_from_template('local_accessibility/options/range', [
             'title' => $this->title,
-            'name' => $this->name,
+            'name' => $this->getfullname(),
             'min' => $this->min,
             'max' => $this->max,
             'step' => $this->step,

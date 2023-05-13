@@ -13,13 +13,13 @@ abstract class optioncolor extends optionbase {
          * @var \moodle_page $PAGE
          */
         global $OUTPUT, $PAGE;
-        $id = $this->name . '-picker';
+        $id = $this->getfullname() . '-picker';
         $icon = new \pix_icon('i/loading', '', 'moodle', ['class' => 'loadingicon']);
         $PAGE->requires->js_init_call('M.util.init_colour_picker', [$id, true]);
         return $OUTPUT->render_from_template('local_accessibility/options/colour', [
             'id' => $id,
-            'name' => $this->name,
-            'optionname' => $this->name,
+            'name' => $this->getfullname(),
+            'optionname' => $this->getfullname(),
             'value' => '',
             'icon' => $icon->export_for_template($OUTPUT),
             'haspreviewconfig' => false,

@@ -1,6 +1,5 @@
 {
-    "plugintypes": {},
-    "plugintypes_": {
+    "plugintypes": {
         "accessibility": "local\/accessibility\/options"
     }
 }

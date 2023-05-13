@@ -34,3 +34,6 @@ $string['dyslexic'] = 'Dyslexic';
 $string['fontsize'] = 'Font Size';
 $string['textcolour'] = 'Text Colour';
 $string['reset'] = 'Reset';
+
+$string['subplugintype_accessibility'] = 'Accessibility Option';
+$string['subplugintype_accessibility_plural'] = 'Accessibility Options';

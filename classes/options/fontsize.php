@@ -8,7 +8,7 @@ class fontsize extends optionrange {
     public function __construct() {
         parent::__construct(
             get_string('fontsize', 'local_accessibility'),
-            'accessibility_fontsize',
+            'fontsize',
             0.5,
             2,
             0.25,

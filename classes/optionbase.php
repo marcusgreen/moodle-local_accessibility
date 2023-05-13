@@ -20,6 +20,10 @@ abstract class optionbase {
         return $this->name;
     }
 
+    public function getfullname() {
+        return 'accessibility_' . $this->name;
+    }
+
     public function gettitle() {
         return $this->title;
     }

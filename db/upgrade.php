@@ -43,6 +43,13 @@ function xmldb_local_accessibility_upgrade($oldversion) {
         $dbman->install_from_xmldb_file($CFG->dirroot . '/local/accessibility/db/install.xml');
         upgrade_plugin_savepoint(true, 2023050600, 'local', 'accessibility');
     }
+    if ($oldversion < 2023051301) {
+        $DB->execute('UPDATE {accessibility_userconfigs} SET optionname = "fontsize" WHERE optionname = "accessibility_fontsize"');
+        $DB->execute('UPDATE {accessibility_userconfigs} SET optionname = "fontface" WHERE optionname = "accessibility_fontface"');
+        $DB->execute('UPDATE {accessibility_userconfigs} SET optionname = "backgroundcolour" WHERE optionname = "accessibility_backgroundcolour"');
+        $DB->execute('UPDATE {accessibility_userconfigs} SET optionname = "textcolour" WHERE optionname = "accessibility_textcolour"');
+        upgrade_plugin_savepoint(true, 2023051301, 'local', 'accessibility');
+    }
 
     return true;
 }

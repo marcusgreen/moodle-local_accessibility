@@ -6,7 +6,7 @@ defined('MOODLE_INTERNAL') or die();
 
 class backgroundcolour extends optioncolor {
     public function __construct() {
-        parent::__construct(get_string('backgroundcolour', 'local_accessibility'), 'accessibility_backgroundcolour');
+        parent::__construct(get_string('backgroundcolour', 'local_accessibility'), 'backgroundcolour');
     }
 
     public function init() {
@@ -22,8 +22,8 @@ class backgroundcolour extends optioncolor {
         }
 
         $PAGE->requires->js_call_amd('local_accessibility/colour', 'init', [
+            $this->getfullname(),
             $this->name,
-            'backgroundcolour',
             'background-color',
             'accessibility-backgroundcolour'
         ]);
