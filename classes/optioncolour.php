@@ -4,7 +4,7 @@ namespace local_accessibility\options;
 
 defined('MOODLE_INTERNAL') or die();
 
-abstract class optioncolor extends optionbase {
+abstract class optioncolour extends optionbase {
     protected $class = 'col-12';
 
     public function getcontent() {

@@ -3,7 +3,6 @@
 require_once(__DIR__ . '/classes/optionbase.php');
 require_once(__DIR__ . '/classes/optionrange.php');
 require_once(__DIR__ . '/classes/optioncolour.php');
-require_once(__DIR__ . '/classes/options/backgroundcolour.php');
 require_once(__DIR__ . '/classes/options/textcolour.php');
 
 /**
@@ -11,7 +10,6 @@ require_once(__DIR__ . '/classes/options/textcolour.php');
  */
 function local_accessibility_getoptions() {
     return [
-        new local_accessibility\options\backgroundcolour(),
         new local_accessibility\options\textcolour()
     ];
 }
@@ -24,7 +22,6 @@ function local_accessibility_getoptions() {
  */
 function local_accessibility_getoptionbyname($optionname) {
     switch ($optionname) {
-        case 'backgroundcolour': return new local_accessibility\options\backgroundcolour();
         case 'textcolour': return new local_accessibility\options\textcolour();
     }
     throw new moodle_exception('INVALID_OPTIONNAME', 'local_accessibility');

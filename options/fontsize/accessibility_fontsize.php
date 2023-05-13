@@ -4,6 +4,8 @@ namespace local_accessibility\options;
 
 defined('MOODLE_INTERNAL') or die();
 
+require_once(__DIR__ . '/../../classes/optionrange.php');
+
 class fontsize extends optionrange {
     public function __construct() {
         parent::__construct(

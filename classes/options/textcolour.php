@@ -4,7 +4,7 @@ namespace local_accessibility\options;
 
 defined('MOODLE_INTERNAL') or die();
 
-class textcolour extends optioncolor {
+class textcolour extends optioncolour {
     public function __construct() {
         parent::__construct(get_string('textcolour', 'local_accessibility'), 'textcolour');
     }
