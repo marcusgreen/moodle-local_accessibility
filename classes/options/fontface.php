@@ -17,7 +17,7 @@ class fontface extends optionbase {
 
         $userconfig = $this->getuserconfig();
         if ($userconfig) {
-            $this->addbodyclass($userconfig);
+            $this->addbodyclass('accessibility-fontface-' . $userconfig);
         }
 
         $PAGE->requires->js_call_amd('local_accessibility/fontface', 'init');

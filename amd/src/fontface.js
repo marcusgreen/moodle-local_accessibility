@@ -10,16 +10,17 @@ export const init = () => {
         }
 
         const $classbuttons = $container.find('.accessibility_fontface-classbtn');
-        const classes = [...$classbuttons].map(x => $(x).attr('data-class')).filter(x => x);
+        const classes = [...$classbuttons].map(x => $(x).attr('data-value')).filter(x => x).map(x => 'accessibility-fontface-' + x);
         if (!classes.length) {
             return;
         }
 
         $classbuttons.on('click', async(e) => {
-            const classname = $(e.target).attr('data-class');
+            const fontfacename = $(e.target).attr('data-value');
+            const classname = 'accessibility-fontface-' + fontfacename;
             $body.removeClass(classes);
             $body.addClass(classname);
-            await saveOptionConfig('fontface', classname);
+            await saveOptionConfig('fontface', fontfacename);
         });
 
         const $resetbutton = $container.find('.accessibility_fontface-resetbtn');
