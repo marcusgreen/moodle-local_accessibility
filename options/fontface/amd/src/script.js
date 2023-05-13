@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { saveOptionConfig } from './common';
+import { saveOptionConfig } from '../../../../amd/src/common';
 
 export const init = () => {
     $(() => {

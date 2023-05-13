@@ -6,7 +6,7 @@ defined('MOODLE_INTERNAL') or die();
 
 class fontface extends optionbase {
     public function __construct() {
-        parent::__construct(get_string('fontface', 'local_accessibility'), 'fontface');
+        parent::__construct(get_string('pluginname', 'accessibility_fontface'), 'fontface');
     }
 
     public function init() {
@@ -20,7 +20,7 @@ class fontface extends optionbase {
             $this->addbodyclass('accessibility-fontface-' . $userconfig);
         }
 
-        $PAGE->requires->js_call_amd('local_accessibility/fontface', 'init');
+        $PAGE->requires->js_call_amd('accessibility_fontface/script', 'init');
     }
 
     public function getcontent() {
@@ -28,8 +28,6 @@ class fontface extends optionbase {
          * @var \core_renderer $OUTPUT
          */
         global $OUTPUT;
-        return $OUTPUT->render_from_template('local_accessibility/options/fontface', [
-            'name' => $this->getfullname()
-        ]);
+        return $OUTPUT->render_from_template('accessibility_fontface/default', []);
     }
 }
