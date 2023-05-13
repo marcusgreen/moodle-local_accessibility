@@ -1,14 +1,14 @@
 <?php
 
-require_once(__DIR__ . '/../../config.php');
+require_once(__DIR__ . '/../../../../config.php');
 header('Content-Type: text/css');
 
 if (!$USER || !$USER->id) {
     exit;
 }
 
-require_once(__DIR__ . '/lib.php');
-require_once(__DIR__ . '/classes/options/textcolour.php');
+require_once(__DIR__ . '/../../lib.php');
+require_once(__DIR__ . '/accessibility_textcolour.php');
 
 $option = new local_accessibility\options\textcolour();
 

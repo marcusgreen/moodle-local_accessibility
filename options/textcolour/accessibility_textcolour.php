@@ -4,9 +4,11 @@ namespace local_accessibility\options;
 
 defined('MOODLE_INTERNAL') or die();
 
+require_once(__DIR__ . '/../../classes/optioncolour.php');
+
 class textcolour extends optioncolour {
     public function __construct() {
-        parent::__construct(get_string('textcolour', 'local_accessibility'), 'textcolour');
+        parent::__construct(get_string('pluginname', 'accessibility_textcolour'), 'textcolour');
     }
 
     public function init() {
