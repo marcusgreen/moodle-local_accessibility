@@ -39,16 +39,18 @@ function xmldb_local_accessibility_upgrade($oldversion) {
 
     $dbman = $DB->get_manager();
 
+    $dbxmlpath = $CFG->dirroot . '/local/accessibility/db/install.xml';
+
     if ($oldversion < 2023050600) {
-        $dbman->install_from_xmldb_file($CFG->dirroot . '/local/accessibility/db/install.xml');
+        $dbman->install_from_xmldb_file($dbxmlpath);
         upgrade_plugin_savepoint(true, 2023050600, 'local', 'accessibility');
     }
-    if ($oldversion < 2023051301) {
-        $DB->execute('UPDATE {accessibility_userconfigs} SET optionname = "fontsize" WHERE optionname = "accessibility_fontsize"');
-        $DB->execute('UPDATE {accessibility_userconfigs} SET optionname = "fontface" WHERE optionname = "accessibility_fontface"');
-        $DB->execute('UPDATE {accessibility_userconfigs} SET optionname = "backgroundcolour" WHERE optionname = "accessibility_backgroundcolour"');
-        $DB->execute('UPDATE {accessibility_userconfigs} SET optionname = "textcolour" WHERE optionname = "accessibility_textcolour"');
-        upgrade_plugin_savepoint(true, 2023051301, 'local', 'accessibility');
+    if ($oldversion < 2023051302) {
+        $DB->delete_records('accessibility_userconfigs', []);
+        if (!$dbman->table_exists('accessibility_enabledoptions')) {
+            $dbman->install_one_table_from_xmldb_file($dbxmlpath, 'accessibility_enabledoptions');
+        }
+        upgrade_plugin_savepoint(true, 2023051302, 'local', 'accessibility');
     }
 
     return true;
