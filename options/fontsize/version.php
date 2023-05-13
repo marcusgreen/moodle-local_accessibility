@@ -15,20 +15,17 @@
 // along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
 
 /**
- * Plugin strings are defined here.
+ * Plugin version and other meta-data are defined here.
  *
- * @package     local_accessibility
- * @category    string
+ * @package     accessibility_fontsize
  * @copyright   2023 Ponlawat Weerapanpisit <ponlawat_w@outlook.co.th>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pluginname'] = 'Accessibility';
-$string['backgroundcolour'] = 'Background Colour';
-$string['textcolour'] = 'Text Colour';
-$string['reset'] = 'Reset';
-
-$string['subplugintype_accessibility'] = 'Accessibility Option';
-$string['subplugintype_accessibility_plural'] = 'Accessibility Options';
+$plugin->component = 'accessibility_fontsize';
+$plugin->release = '0.0.0';
+$plugin->version = 2023051300;
+$plugin->requires = 2022041900;
+$plugin->maturity = MATURITY_ALPHA;

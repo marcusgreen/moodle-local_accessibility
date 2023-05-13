@@ -1,6 +1,6 @@
 import $ from 'jquery';
-import { initoptionrange } from './optionrange';
-import { saveOptionConfig } from './common';
+import { initoptionrange } from '../../../../amd/src/optionrange';
+import { saveOptionConfig } from '../../../../amd/src/common';
 
 export const init = (userdefault = undefined) => {
     const classnames = [

@@ -7,7 +7,7 @@ defined('MOODLE_INTERNAL') or die();
 class fontsize extends optionrange {
     public function __construct() {
         parent::__construct(
-            get_string('fontsize', 'local_accessibility'),
+            get_string('pluginname', 'accessibility_fontsize'),
             'fontsize',
             0.5,
             2,
@@ -27,6 +27,6 @@ class fontsize extends optionrange {
             $this->addbodyclass('accessibility-fontsize-' . round($userconfig * 100));
         }
 
-        $PAGE->requires->js_call_amd('local_accessibility/fontsize', 'init', [$userconfig]);
+        $PAGE->requires->js_call_amd('accessibility_fontsize/script', 'init', [$userconfig]);
     }
 }
