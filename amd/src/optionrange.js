@@ -53,7 +53,7 @@ export const initoptionrange = (name, callback, userdefault = undefined) => {
     }
 
     if (userdefault) {
-        $inputrange.val(userdefault);
+        $inputrange.val(parseFloat(userdefault));
         $inputrange.trigger('change');
     }
 };

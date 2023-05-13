@@ -24,7 +24,7 @@ class fontsize extends optionrange {
 
         $userconfig = $this->getuserconfig();
         if ($userconfig) {
-            $this->addbodyclass($userconfig);
+            $this->addbodyclass('accessibility-fontsize-' . round($userconfig * 100));
         }
 
         $PAGE->requires->js_call_amd('local_accessibility/fontsize', 'init', [$userconfig]);
