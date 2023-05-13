@@ -31,14 +31,6 @@ function local_accessibility_getoptionbyname($optionname) {
 }
 
 function local_accessibility_before_http_headers() {
-    /**
-     * @var \moodle_page $PAGE
-     */
-    global $PAGE;
-    $PAGE->requires->css('/local/accessibility/styles-dev.css');
-    $PAGE->requires->css('/local/accessibility/classes/options/fontsize.css');
-    $PAGE->requires->css('/local/accessibility/classes/options/fontface.css');
-
     $optioninstances = local_accessibility_getoptions();
     foreach ($optioninstances as $optioninstance) {
         $optioninstance->init();
