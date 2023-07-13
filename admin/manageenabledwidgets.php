@@ -56,7 +56,7 @@ foreach ($widgets as $widget) {
 echo $OUTPUT->header();
 echo $OUTPUT->heading(get_string('manageenabledwidgets', 'local_accessibility'));
 echo $OUTPUT->render_from_template('local_accessibility/admin/enabledwidgets', [
-    'options' => $context,
+    'widgets' => $context,
     'baseurl' => $url
 ]);
 echo html_writer::start_tag('hr');
