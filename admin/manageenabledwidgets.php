@@ -55,7 +55,7 @@ foreach ($widgets as $widget) {
 }
 echo $OUTPUT->header();
 echo $OUTPUT->heading(get_string('manageenabledwidgets', 'local_accessibility'));
-echo $OUTPUT->render_from_template('local_accessibility/admin/enablewidgets', [
+echo $OUTPUT->render_from_template('local_accessibility/admin/enabledwidgets', [
     'options' => $context,
     'baseurl' => $url
 ]);
